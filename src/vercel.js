@@ -1,8 +1,8 @@
 import { Hono } from 'hono'
 import { handle } from 'hono/nextjs'
 
-Hono.prototype.serve = function () {
-  return handle(this, '/api')
+Hono.prototype.serve = function (options = {}) {
+  return handle(this, options?.vercel?.path || '/api')
 }
 
 export const config = {
@@ -10,4 +10,4 @@ export const config = {
 }
 export * from 'hono'
 export * from 'hono/nextjs'
-export * from './middlewares'
+export * from './common'

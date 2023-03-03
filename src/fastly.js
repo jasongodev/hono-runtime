@@ -1,9 +1,9 @@
 import { Hono } from 'hono'
 
-Hono.prototype.serve = function () {
+Hono.prototype.serve = function (options = {}) {
   this.fire()
   return this
 }
 
 export * from 'hono'
-export * from './middlewares'
+export * from './common'
