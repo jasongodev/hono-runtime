@@ -1,0 +1,57 @@
+{
+  "name": "hono-runtime",
+  "version": "0.1.0",
+  "description": "Instantiate hono using the same code across different runtimes.",
+  "type": "module",
+  "scripts": {
+    "build": "rimraf ./lib && $npm_execpath build:bun && $npm_execpath build:cloudflare && $npm_execpath build:deno && $npm_execpath build:fastly && $npm_execpath build:vercel",
+    "build:bun": "microbundle --target node --format esm,cjs --sourcemap false -i ./src/bun.js -o ./lib/bun.js",
+    "build:cloudflare": "microbundle --target node --format esm,cjs --sourcemap false -i ./src/cloudflare.js -o ./lib/cloudflare.js",
+    "build:deno": "microbundle --target node --format esm --sourcemap false -i ./src/deno.js -o ./lib/deno.js",
+    "build:fastly": "microbundle --target node --format esm,cjs --sourcemap false -i ./src/fastly.js -o ./lib/fastly.js",
+    "build:vercel": "microbundle --target node --format esm,cjs --sourcemap false -i ./src/vercel.js -o ./lib/vercel.js"
+  },
+  "keywords": [
+    "hono",
+    "router",
+    "bun",
+    "cloudflare",
+    "workers",
+    "deno",
+    "fastly",
+    "compute@edge",
+    "runtime",
+    "adapter"
+  ],
+  "author": "Jason Go <dev@jasongo.net>",
+  "license": "MIT",
+  "dependencies": {
+    "hono": "^3.0.2"
+  },
+  "exports": {
+    "./bun": {
+      "import": "./lib/bun.esm.js",
+      "require": "./lib/bun.cjs"
+    },
+    "./cloudflare": {
+      "import": "./lib/cloudflare.esm.js",
+      "require": "./lib/cloudflare.cjs"
+    },
+    "./deno": {
+      "import": "./lib/deno.esm.js"
+    },
+    "./fastly": {
+      "import": "./lib/fastly.esm.js",
+      "require": "./lib/fastly.cjs"
+    },
+    "./vercel": {
+      "import": "./lib/vercel.esm.js",
+      "require": "./lib/vercel.cjs"
+    }
+  },
+  "devDependencies": {
+    "microbundle": "^0.15.1",
+    "rimraf": "^4.1.3",
+    "standard": "^17.0.0"
+  }
+}
