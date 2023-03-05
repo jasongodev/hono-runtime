@@ -5,5 +5,5 @@ Hono.prototype.serve = function (options = {}) {
 }
 
 export * from 'hono'
-export * from 'hono/cloudflare-workers'
 export * from './common'
+export * from 'hono/cloudflare-workers'

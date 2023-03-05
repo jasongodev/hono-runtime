@@ -2,7 +2,7 @@ import { serve } from 'https://deno.land/std/http/server.ts'
 import { Hono } from 'https://deno.land/x/hono/mod.ts'
 
 Hono.prototype.serve = function (options = {}) {
-  serve(this.fetch, options?.deno)
+  serve(this.fetch, options?.deno || {})
   return this
 }
 

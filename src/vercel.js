@@ -9,5 +9,5 @@ export const config = {
   runtime: 'edge'
 }
 export * from 'hono'
-export * from 'hono/nextjs'
 export * from './common'
+export * from 'hono/nextjs'
