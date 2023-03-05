@@ -34,24 +34,6 @@
     "build:vercel": "microbundle --target node --format esm,cjs --sourcemap false -i ./src/vercel.js -o ./lib/vercel.js"
   },
   "exports": {
-    "./bun": {
-      "import": "./lib/bun.esm.js",
-      "require": "./lib/bun.cjs"
-    },
-    "./cloudflare": {
-      "import": "./lib/cloudflare.esm.js",
-      "require": "./lib/cloudflare.cjs"
-    },
-    "./deno": {
-      "import": "./lib/deno.esm.js"
-    },
-    "./fastly": {
-      "import": "./lib/fastly.esm.js",
-      "require": "./lib/fastly.cjs"
-    },
-    "./vercel": {
-      "import": "./lib/vercel.esm.js",
-      "require": "./lib/vercel.cjs"
-    }
+    "./*": "./lib/*"
   }
 }
