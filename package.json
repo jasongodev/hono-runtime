@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "description": "Instantiate hono using the same code across different runtimes.",
   "type": "module",
-  "author": "Jason Go <dev@jasongo.net>",
+  "author": "Jason Go <jasongo@jasongo.net>",
   "license": "MIT",
   "keywords": [
     "hono",
