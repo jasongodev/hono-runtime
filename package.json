@@ -1,6 +1,6 @@
 {
   "name": "hono-runtime",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Instantiate hono using the same code across different runtimes.",
   "type": "module",
   "author": "Jason Go <jasongo@jasongo.net>",
@@ -34,6 +34,9 @@
     "build:vercel": "microbundle --target node --format esm,cjs --sourcemap false -i ./src/vercel.js -o ./lib/vercel.js"
   },
   "exports": {
-    "./*": "./lib/*"
+    "./*": {
+      "import": "./lib/*.esm.js",
+      "require": "./lib/*.cjs"
+    }
   }
 }
