@@ -1,6 +1,6 @@
 {
   "name": "hono-runtime",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Instantiate hono using the same code across different runtimes.",
   "type": "module",
   "author": "Jason Go <jasongo@jasongo.net>",
@@ -52,6 +52,22 @@
       "import": "./dist/esm/vercel.js",
       "require": "./dist/cjs/vercel.js",
       "types": "./dist/types/vercel.d.ts"
+    }
+  },
+  "typesVersions": {
+    "*": {
+      "bun": [
+        "./dist/types/bun.d.ts"
+      ],
+      "cloudflare": [
+        "./dist/types/cloudflare.d.ts"
+      ],
+      "fastly": [
+        "./dist/types/fastly.d.ts"
+      ],
+      "vercel": [
+        "./dist/types/vercel.d.ts"
+      ]
     }
   }
 }
