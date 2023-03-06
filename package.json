@@ -21,23 +21,22 @@
     "hono": "^3.0.3"
   },
   "devDependencies": {
+    "denoify": "^1.4.10",
     "rimraf": "^4.3.0",
     "ts-standard": "^12.0.2",
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "build": "rimraf ./lib && $npm_execpath build:bun && $npm_execpath build:cloudflare && $npm_execpath build:deno && $npm_execpath build:fastly && $npm_execpath build:vercel",
-    "build:bun": "microbundle --target node --format esm,cjs --sourcemap false --generateTypes true -i ./src/bun.js -o ./lib/bun.js",
-    "build:cloudflare": "microbundle --target node --format esm,cjs --sourcemap false -i ./src/cloudflare.js -o ./lib/cloudflare.js",
-    "build:deno": "microbundle --target node --format esm --sourcemap false -i ./src/deno.js -o ./lib/deno.js",
-    "build:fastly": "microbundle --target node --format esm,cjs --sourcemap false -i ./src/fastly.js -o ./lib/fastly.js",
-    "build:vercel": "microbundle --target node --format esm,cjs --sourcemap false -i ./src/vercel.js -o ./lib/vercel.js"
+    "build": "$npm_execpath run build:esm && $npm_execpath run build:cjs && $npm_execpath run build:types",
+    "build:esm": "tsc --module es2020  --outDir ./lib/esm/",
+    "build:cjs": "tsc --module commonjs  --outDir ./lib/cjs/",
+    "build:types": "tsc --declaration true --emitDeclarationOnly true --outDir ./lib/types/"
   },
   "exports": {
     "./*": {
-      "import": "./src/*.esm.js",
-      "require": "./src/*.cjs",
-      "types": "./src/types.d.ts"
+      "import": "./lib/esm/*.js",
+      "require": "./lib/cjs/*.js",
+      "types": "./lib/types/*.d.ts"
     }
   }
 }

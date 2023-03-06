@@ -4,6 +4,7 @@ export interface HonoRuntimeOptions {
   bun?: {
     port?: number
   }
+  deno?: {}
   vercel?: {
     path?: string
   }
