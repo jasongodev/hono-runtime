@@ -1,6 +1,6 @@
 {
   "name": "hono-runtime",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "Instantiate hono using the same code across different runtimes.",
   "type": "module",
   "author": "Jason Go <jasongo@jasongo.net>",
@@ -18,13 +18,12 @@
     "adapter"
   ],
   "dependencies": {
-    "hono": "^3.0.3",
-    "ts-standard": "^12.0.2",
-    "typescript": "^4.9.5"
+    "hono": "^3.0.3"
   },
   "devDependencies": {
-    "microbundle": "^0.15.1",
-    "rimraf": "^4.3.0"
+    "rimraf": "^4.3.0",
+    "ts-standard": "^12.0.2",
+    "typescript": "^4.9.5"
   },
   "scripts": {
     "build": "rimraf ./lib && $npm_execpath build:bun && $npm_execpath build:cloudflare && $npm_execpath build:deno && $npm_execpath build:fastly && $npm_execpath build:vercel",
