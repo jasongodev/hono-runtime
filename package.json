@@ -1,6 +1,6 @@
 {
   "name": "hono-runtime",
-  "version": "0.1.7",
+  "version": "0.1.8",
   "description": "Instantiate hono using the same code across different runtimes.",
   "type": "module",
   "author": "Jason Go <jasongo@jasongo.net>",
@@ -27,16 +27,31 @@
     "typescript": "^4.9.5"
   },
   "scripts": {
-    "build": "$npm_execpath run build:esm && $npm_execpath run build:cjs && $npm_execpath run build:types",
-    "build:esm": "tsc --module es2020  --outDir ./lib/esm/",
-    "build:cjs": "tsc --module commonjs  --outDir ./lib/cjs/",
-    "build:types": "tsc --declaration true --emitDeclarationOnly true --outDir ./lib/types/"
+    "build": "rimraf ./dist && $npm_execpath run build:esm && $npm_execpath run build:cjs && $npm_execpath run build:types",
+    "build:esm": "tsc --module es2020  --outDir ./dist/esm/",
+    "build:cjs": "tsc --module commonjs  --outDir ./dist/cjs/",
+    "build:types": "tsc --declaration true --emitDeclarationOnly true --outDir ./dist/types/"
   },
   "exports": {
-    "./*": {
-      "import": "./lib/esm/*.js",
-      "require": "./lib/cjs/*.js",
-      "types": "./lib/types/*.d.ts"
+    "./bun": {
+      "import": "./dist/esm/bun.js",
+      "require": "./dist/cjs/bun.js",
+      "types": "./dist/types/bun.d.ts"
+    },
+    "./cloudflare": {
+      "import": "./dist/esm/cloudflare.js",
+      "require": "./dist/cjs/cloudflare.js",
+      "types": "./dist/types/cloudflare.d.ts"
+    },
+    "./fastly": {
+      "import": "./dist/esm/fastly.js",
+      "require": "./dist/cjs/fastly.js",
+      "types": "./dist/types/fastly.d.ts"
+    },
+    "./vercel": {
+      "import": "./dist/esm/vercel.js",
+      "require": "./dist/cjs/vercel.js",
+      "types": "./dist/types/vercel.d.ts"
     }
   }
 }
