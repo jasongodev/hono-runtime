@@ -1,6 +1,6 @@
 {
   "name": "hono-runtime",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "Instantiate hono using the same code across different runtimes.",
   "type": "module",
   "author": "Jason Go <jasongo@jasongo.net>",
@@ -29,7 +29,7 @@
   "scripts": {
     "build": "rimraf ./dist && $npm_execpath run build:esm && $npm_execpath run build:cjs && $npm_execpath run build:types",
     "build:esm": "tsc --module es2020  --outDir ./dist/esm/",
-    "build:cjs": "tsc --module commonjs  --outDir ./dist/cjs/",
+    "build:cjs": "tsc --module commonjs  --target es5 --outDir ./dist/cjs/",
     "build:types": "tsc --declaration true --emitDeclarationOnly true --outDir ./dist/types/"
   },
   "exports": {
