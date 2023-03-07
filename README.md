@@ -13,7 +13,7 @@ npm create hono-runtime-template
 ```
 ## Code Usage
 ```javascript
-import { Hono } from './lib/cloudflare'
+import { Hono } from 'hono-runtime/cloudflare'
 
 const app = new Hono()
 
