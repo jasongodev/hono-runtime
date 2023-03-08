@@ -5,6 +5,9 @@ export interface HonoRuntimeOptions {
     port?: number
   }
   deno?: {}
+  nextjs?: {
+    path?: string
+  }
   vercel?: {
     path?: string
   }
@@ -19,9 +22,11 @@ export type HonoCloudflareReturn = Hono
 
 export type HonoFastlyReturn = Hono
 
-export type HonoVercelReturn = (req: Request) => Response | Promise<Response>
+export type HonoNextjsReturn = (req: Request) => Response | Promise<Response>
 
-export type HonoRuntimeServe = HonoBunReturn | HonoCloudflareReturn | HonoFastlyReturn | HonoVercelReturn | Hono
+export type HonoVercelReturn = (req: Request, res: Response) => Response | Promise<Response>
+
+export type HonoRuntimeServe = HonoBunReturn | HonoCloudflareReturn | HonoFastlyReturn | HonoNextjsReturn | HonoVercelReturn | Hono
 
 // Built-in middlewares
 export * from 'hono/basic-auth'
