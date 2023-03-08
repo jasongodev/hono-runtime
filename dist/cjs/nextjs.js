@@ -31,17 +31,19 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Hono = void 0;
 var hono_1 = require("hono");
+var nextjs_1 = require("hono/nextjs");
 var HonoRuntime = (function (_super) {
     __extends(HonoRuntime, _super);
     function HonoRuntime() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     HonoRuntime.prototype.serve = function (options) {
-        return this;
+        var _a, _b;
+        return (0, nextjs_1.handle)(this, (_b = (_a = options === null || options === void 0 ? void 0 : options.nextjs) === null || _a === void 0 ? void 0 : _a.path) !== null && _b !== void 0 ? _b : '/api');
     };
     return HonoRuntime;
 }(hono_1.Hono));
 exports.Hono = HonoRuntime;
 __exportStar(require("hono"), exports);
 __exportStar(require("./common"), exports);
-__exportStar(require("hono/cloudflare-workers"), exports);
+__exportStar(require("hono/nextjs"), exports);

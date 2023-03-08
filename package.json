@@ -1,6 +1,6 @@
 {
   "name": "hono-runtime",
-  "version": "0.1.12",
+  "version": "0.1.13",
   "description": "Instantiate hono using the same code across different runtimes.",
   "type": "module",
   "author": "Jason Go <jasongo@jasongo.net>",

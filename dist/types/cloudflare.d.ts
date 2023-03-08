@@ -1,6 +1,6 @@
-import { Hono } from 'hono';
+import { Hono, Env } from 'hono';
 import type { HonoRuntimeOptions, HonoRuntimeServe } from './common';
-declare class HonoRuntime extends Hono {
+declare class HonoRuntime<E extends Env, S = {}, BasePath extends string = ''> extends Hono<E, S, BasePath> {
     serve(options?: HonoRuntimeOptions): HonoRuntimeServe;
 }
 export { HonoRuntime as Hono };
