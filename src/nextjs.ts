@@ -9,9 +9,6 @@ class HonoRuntime extends Hono {
   }
 }
 
-export const config = {
-  runtime: 'edge'
-}
 export { HonoRuntime as Hono }
 export * from 'hono'
 export * from './common'
