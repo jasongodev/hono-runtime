@@ -5,7 +5,7 @@ import type { HonoRuntimeOptions, HonoRuntimeServe } from './common'
 
 class HonoRuntime extends Hono {
   serve (options?: HonoRuntimeOptions): HonoRuntimeServe {
-    return handle(this, options?.vercel?.path ?? '/api')
+    return handle(this, options?.nextjs?.path ?? '/api')
   }
 }
 
